@@ -1,0 +1,39 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Rubik:wght@300;400;500;600;700;800&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --font-col: #19141f;
+  --font-col-gray-light: #616060;
+  --font-col-gray: #42393e;
+  --font-col-white: #f1f1f1;
+  --col-primary: #78bc61;
+}
+html {
+  font-size: 14px;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  /* font-family: "Rubik", sans-serif; */
+  color: var(--font-col);
+  /* font-family: "Noto Serif", serif; */
+  font-family: "Roboto", sans-serif;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 680px) {
+  html {
+    font-size: 15px;
+  }
+}

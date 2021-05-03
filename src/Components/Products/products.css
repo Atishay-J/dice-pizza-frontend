@@ -1,0 +1,114 @@
+.productsMainWrapper {
+  margin-top: 5rem;
+  padding-bottom: 8rem;
+  /*  
+  position: relative; */
+}
+.productsBannerWrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  overflow: scroll;
+  width: 100%;
+}
+.productBannerImageWrapper {
+  width: 30vw;
+  margin-top: 1rem;
+}
+.productBannerImage {
+  width: 100%;
+  border-radius: 10px;
+}
+.productsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  flex-direction: column;
+}
+.productList {
+  margin-top: 2.5rem;
+  width: 20rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* ******* Navbar FIlters  ******** */
+
+.productFilterContainer {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid #eaeafcbe;
+  margin-top: 4rem;
+  padding-top: 2rem;
+}
+.filterWrapper {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  /* border: 1px solid rgb(119, 238, 21); */
+  width: 15rem;
+}
+.dropDownBtn {
+  display: none;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 4.5rem;
+  height: 2rem;
+  padding: 0.3rem;
+  border: none;
+  background: rgb(6, 4, 7);
+  color: var(--font-col-white);
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+}
+.dropdownContainer {
+  position: relative;
+  left: 0;
+  top: 0;
+}
+.dropDownList {
+  /* border: 1px solid red; */
+  width: 11rem;
+  background: #fafafa;
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  /* margin-top: 1rem; */
+  z-index: 4;
+  padding: 1rem;
+  display: none;
+  border-radius: 15px;
+  box-shadow: -3px 3px 11px 0px rgba(3, 2, 22, 0.171);
+}
+
+@media only screen and (min-width: 680px) {
+  .productsBannerWrapper {
+    /* width: 30rem; */
+    justify-content: space-evenly;
+    overflow: hidden;
+  }
+  .productBannerImageWrapper {
+    max-width: 25rem;
+    /* margin-left: 5rem; */
+  }
+  .productBannerImage {
+    width: 100%;
+  }
+  .productsWrapper {
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  .productList {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 20rem;
+  }
+  .dropDownBtn {
+    display: flex;
+  }
+}

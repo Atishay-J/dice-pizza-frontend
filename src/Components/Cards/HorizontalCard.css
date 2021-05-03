@@ -1,0 +1,86 @@
+.horizontalCardContainer {
+  width: 16rem;
+  border-radius: 25px;
+  box-shadow: 2px 2px 10px -1px rgba(20, 13, 27, 0.15);
+  /* padding: 0.5rem; */
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* margin-left: 2rem; */
+
+  padding: 0.6rem;
+}
+.horizontalCardImg {
+  width: 100%;
+  border-radius: 22px 22px 3px 3px;
+}
+.horizontalCardTitle {
+  font-size: 1rem;
+  margin-top: 0.4rem;
+}
+.horizontalCardPrice {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--font-col-gray-light);
+}
+.incrementDecrementContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  width: 60%;
+  height: 2.5rem;
+  margin: auto;
+  margin-top: 0.8rem;
+}
+
+.incDecButton {
+  width: 3rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  border: none;
+  background: var(--col-primary);
+  color: var(--font-col-white);
+  outline: none;
+  cursor: pointer;
+}
+.incBtn {
+  border-radius: 10px 0px 0px 10px;
+}
+.decBtn {
+  border-radius: 0px 10px 10px 0px;
+}
+.removeBtnContainer {
+  margin-top: 1rem;
+}
+.removeFromBtn {
+  display: block;
+  margin: auto;
+  padding: 0.4rem 0.6rem 0.4rem 0.6rem;
+  border: none;
+  background: var(--col-primary);
+  border-radius: 20px;
+  color: var(--font-col-white);
+}
+.moveBtnContainer {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.moveToCart {
+  padding: 0.4rem 0.6rem 0.4rem 0.6rem;
+  width: 10rem;
+  height: 1.8rem;
+  border: none;
+  background: var(--col-primary);
+  border-radius: 20px;
+  color: var(--font-col-white);
+}
+@media only screen and (min-width: 680px) {
+  .horizontalCardContainer {
+    box-shadow: 2px 2px 10px -1px rgba(20, 13, 27, 0.15);
+  }
+}
