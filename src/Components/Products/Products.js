@@ -21,12 +21,8 @@ export default function Products() {
   const [dropdownVisible, setDropdownVisible] = useState(false);
   let dropDownClass = `dropDownList ${dropdownVisible && "showDropdownList"}`;
 
-  const toggleVeg = (productsData, isVeg) => {
-    if (isVeg) {
-      return [...productsData].filter((product) => product.isVeg === true);
-    }
-    return productsData;
-  };
+  const toggleVeg = (productsData, isVeg) =>
+    isVeg ? productsData.filter((product) => product.isVeg) : productsData;
 
   const sortByPrices = (products, sortBy) => {
     switch (sortBy) {
