@@ -47,11 +47,7 @@ export default function ProductCard({ item, reducerState, dispatch }) {
         <div className="productPriceWrapper">
           <p className="prodCardPrice"> ₹{item.price}</p>
           <div className="isVegContainer">
-            {item.isVeg ? (
-              <div className="isVeg veg"></div>
-            ) : (
-              <div className="isVeg nonVeg"></div>
-            )}
+            <div className={`isVeg ${item.isVeg ? "veg" : "nonVeg"}`}></div>
           </div>
         </div>
         <div className="starRatingsWrapper">
