@@ -5,6 +5,17 @@ export default function IncDecBtn({ item }) {
   return (
     <div className="incrementDecrementContainer">
       <button
+        className="incDecButton decBtn"
+        onClick={() =>
+          dispatch({ type: "DECREMENT_QTY", payload: { id: item.id } })
+        }
+      >
+        -
+      </button>
+
+      <p>{item.qty}</p>
+
+      <button
         className="incDecButton incBtn"
         onClick={() =>
           dispatch({
@@ -14,15 +25,6 @@ export default function IncDecBtn({ item }) {
         }
       >
         +
-      </button>
-      <p>{item.qty}</p>
-      <button
-        className="incDecButton decBtn"
-        onClick={() =>
-          dispatch({ type: "DECREMENT_QTY", payload: { id: item.id } })
-        }
-      >
-        -
       </button>
     </div>
   );
