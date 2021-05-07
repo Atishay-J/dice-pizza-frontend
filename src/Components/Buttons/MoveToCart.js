@@ -23,7 +23,7 @@ export default function MoveBtn({ item }) {
                 title: item.title,
                 price: item.price,
                 isVeg: item.isVeg,
-                ratings: item.ratings,
+                rating: item.rating,
               },
             })
           }

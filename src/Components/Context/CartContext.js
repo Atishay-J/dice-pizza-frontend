@@ -29,7 +29,7 @@ const cartReducer = (state, action) => {
             img: action.payload.img,
             price: action.payload.price,
             isVeg: action.payload.isVeg,
-            ratings: action.payload.ratings,
+            rating: action.payload.rating,
             qty: 1,
           },
           ...state.cart,
@@ -54,7 +54,7 @@ const cartReducer = (state, action) => {
             img: action.payload.img,
             price: action.payload.price,
             isVeg: action.payload.isVeg,
-            ratings: action.payload.ratings,
+            rating: action.payload.rating,
             qty: 1,
           },
 

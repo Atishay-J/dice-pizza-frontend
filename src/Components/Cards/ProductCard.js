@@ -29,7 +29,7 @@ export default function ProductCard({ item, reducerState, dispatch }) {
                     title: item.title,
                     price: item.price,
                     isVeg: item.isVeg,
-                    ratings: item.rating,
+                    rating: item.rating,
                   },
                 })
               }
@@ -76,7 +76,7 @@ export default function ProductCard({ item, reducerState, dispatch }) {
                     title: item.title,
                     price: item.price,
                     isVeg: item.isVeg,
-                    ratings: item.rating,
+                    rating: item.rating,
                   },
                 })
               }

@@ -14,7 +14,7 @@ export default function HorizontalCard({
         <h1 className="horizontalCardTitle">{item.title}</h1>
         <div className="starRatingsWrapper">
           <StarRatings
-            starred={item.ratings}
+            starred={item.rating}
             activeColor="#78bc61"
             color="#dadada"
           />
