@@ -36,7 +36,9 @@ export default function CartTotal() {
           Discount : ₹{" "}
           {state.discount.giveDiscount ? state.discount.discountAmt : "00"}
         </h6>
-        <p className="cartTotalMessage">{state.discount.discountMsg}</p>
+        {checkInput && (
+          <p className="cartTotalMessage">{state.discount.discountMsg}</p>
+        )}
         <input
           className="cartTotalInput"
           type="text"
