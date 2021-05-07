@@ -1,6 +1,6 @@
 import StarSharpIcon from "@material-ui/icons/StarSharp";
 
-export default function StarRatings({ starred, stars, starredCol, starsCol }) {
+export default function StarRatings({ starred, stars, activeColor, color }) {
   let starsArr = [];
   let i = 0;
   while (i < stars) {
@@ -11,9 +11,9 @@ export default function StarRatings({ starred, stars, starredCol, starsCol }) {
     <div className="StarRatingsContainer">
       {starsArr.map((item, index) => {
         if (item < starred) {
-          return <StarSharpIcon style={{ color: starredCol }} key={index} />;
+          return <StarSharpIcon style={{ color: activeColor }} key={index} />;
         }
-        return <StarSharpIcon style={{ color: starsCol }} key={index} />;
+        return <StarSharpIcon style={{ color: color }} key={index} />;
       })}
     </div>
   );

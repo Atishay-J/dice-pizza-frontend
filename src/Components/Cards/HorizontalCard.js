@@ -16,8 +16,8 @@ export default function HorizontalCard({
           <StarRatings
             starred={item.ratings}
             stars={5}
-            starredCol="#78bc61"
-            starsCol="#dadada"
+            activeColor="#78bc61"
+            color="#dadada"
           />
         </div>
         <h6 className="horizontalCardPrice"> ₹{item.price}</h6>
