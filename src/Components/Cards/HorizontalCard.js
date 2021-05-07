@@ -15,7 +15,6 @@ export default function HorizontalCard({
         <div className="starRatingsWrapper">
           <StarRatings
             starred={item.ratings}
-            stars={5}
             activeColor="#78bc61"
             color="#dadada"
           />

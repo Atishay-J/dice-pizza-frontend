@@ -1,6 +1,11 @@
 import StarSharpIcon from "@material-ui/icons/StarSharp";
 
-export default function StarRatings({ starred, stars, activeColor, color }) {
+export default function StarRatings({
+  starred,
+  stars = 5,
+  activeColor,
+  color,
+}) {
   let starsArr = [];
   let i = 0;
   while (i < stars) {

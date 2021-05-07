@@ -57,7 +57,6 @@ export default function ProductCard({ item, reducerState, dispatch }) {
         <div className="starRatingsWrapper">
           <StarRatings
             starred={item.rating}
-            stars={5}
             activeColor="#78bc61"
             color="#dadada"
           />
