@@ -5,14 +5,10 @@ import { StarRatings } from "../index";
 import FavoriteSharpIcon from "@material-ui/icons/FavoriteSharp";
 
 export default function ProductCard({ item, reducerState, dispatch }) {
-  const checkIfFav = () => {
-    if (
-      reducerState.favourites.find((itemsInFav) => itemsInFav.id === item._id)
-    ) {
-      return true;
-    }
-    return false;
-  };
+  const checkIfFav = () =>
+    reducerState.favourites.find((itemsInFav) => itemsInFav.id === item._id)
+      ? true
+      : false;
 
   return (
     <div className="productCardContainer">
