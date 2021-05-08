@@ -9,7 +9,7 @@ export default function Favourites() {
         <div className="emptyCartIconWrapper">
           <VpnKeySharpIcon fontSize="inherit" color="inherit" />
         </div>
-        <h2 className="emptyCartHeading">Login to see your Favourites</h2>
+        <h2 className="emptyCartHeading">SignIn to see your Favourites</h2>
         <p className="emptyCartPara" style={{ textDecoration: "underline" }}>
           <Link to="/signin">SignIn</Link>
         </p>

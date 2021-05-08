@@ -1,3 +1,16 @@
+.signupContainer {
+  width: 100%;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.signupFormWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .signupMsg {
   font-weight: 500;
   font-size: 1rem;
@@ -5,7 +18,7 @@
 }
 .simpleText-input {
   height: 2.3rem;
-  width: 6rem;
+  width: 15rem;
   margin-top: 1rem;
 }
 .loggedInOptionsContainer {
@@ -13,6 +26,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  width: 10rem;
+  border: 1px solid purple;
 }
 .loginOptionListContainer {
   height: 3rem;

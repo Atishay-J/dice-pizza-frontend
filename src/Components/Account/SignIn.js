@@ -33,50 +33,52 @@ const SignIn = () => {
   };
 
   return (
-    <div className="signInContainer container  flex-column align-center">
+    <div className="signupContainer container  flex-column align-center">
       <h1 className="heading-l">SignIn</h1>
 
       {displayMsg && <h3>Wrong Username or password</h3>}
 
-      <form
-        className="flex-column align-center signInForm mt15"
-        action="#"
-        onSubmit={(e) => e.preventDefault()}
-      >
-        <div className="inputsWrapper flex-column">
+      <div className="signupFormWrapper">
+        <form
+          className="flex-column align-center signInForm mt15"
+          action="#"
+          onSubmit={(e) => e.preventDefault()}
+        >
+          <div className="inputsWrapper flex-column">
+            <input
+              className="simpleText-input"
+              type="text"
+              placeholder="username"
+              value={userInput.username}
+              onChange={(e) =>
+                setUserInput({ ...userInput, username: e.target.value })
+              }
+            />
+            <input
+              className="simpleText-input"
+              type="password"
+              placeholder="password"
+              value={userInput.password}
+              onChange={(e) =>
+                setUserInput({ ...userInput, password: e.target.value })
+              }
+            />
+          </div>
           <input
-            className="simpleText-input"
-            type="text"
-            placeholder="username"
-            value={userInput.username}
-            onChange={(e) =>
-              setUserInput({ ...userInput, username: e.target.value })
-            }
+            className="btn success submitBtn"
+            type="submit"
+            value="SignIn"
+            onClick={signInUser}
           />
-          <input
-            className="simpleText-input"
-            type="password"
-            placeholder="password"
-            value={userInput.password}
-            onChange={(e) =>
-              setUserInput({ ...userInput, password: e.target.value })
-            }
-          />
-        </div>
-        <input
-          className="btn success submitBtn"
-          type="submit"
-          value="SignIn"
-          onClick={signInUser}
-        />
-      </form>
+        </form>
 
-      <p className="signInPara mt10">
-        Don't have an accout?{" "}
-        <Link to="/signup">
-          <span className="formLink"> SignUp</span>
-        </Link>
-      </p>
+        <p className="signInPara mt10">
+          Don't have an accout?{" "}
+          <Link to="/signup">
+            <span className="formLink"> SignUp</span>
+          </Link>
+        </p>
+      </div>
     </div>
   );
 };
