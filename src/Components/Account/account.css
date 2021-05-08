@@ -1,3 +1,8 @@
+.accountContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .signupContainer {
   width: 100%;
   position: fixed;
@@ -24,23 +29,32 @@
 .loggedInOptionsContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: flex-start;
-  width: 10rem;
-  border: 1px solid purple;
+  width: 30rem;
+  /* height: 10rem; */
+  border-radius: 20px;
+  box-shadow: -1px 0px 10px -4px rgba(0, 0, 0, 0.192);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  /* border: 1px solid purple; */
 }
 .loginOptionListContainer {
   height: 3rem;
   width: 23rem;
-  box-shadow: 10px -10px 16px -13px rgba(0, 0, 0, 0.164);
-  border-radius: 8px;
   color: var(--colDarkGray);
-  margin-top: 1rem;
+  display: flex;
+  align-items: center;
   cursor: pointer;
+  border-bottom: 1px solid rgba(235, 235, 235, 0.603);
+  padding-bottom: 1rem;
+  margin-top: 2rem;
+  padding-left: 2rem;
 }
 .loginOptionsTitle {
   font-weight: 500;
   font-size: 1.2rem;
+  margin-left: 2rem;
 }
 @media only screen and (min-width: 680px) {
   .loggedInOptionsContainer {
