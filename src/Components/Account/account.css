@@ -1,0 +1,39 @@
+.signupMsg {
+  font-weight: 500;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+.simpleText-input {
+  height: 2.3rem;
+  width: 6rem;
+  margin-top: 1rem;
+}
+.loggedInOptionsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.loginOptionListContainer {
+  height: 3rem;
+  width: 23rem;
+  box-shadow: 10px -10px 16px -13px rgba(0, 0, 0, 0.164);
+  border-radius: 8px;
+  color: var(--colDarkGray);
+  margin-top: 1rem;
+  cursor: pointer;
+}
+.loginOptionsTitle {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+@media only screen and (min-width: 680px) {
+  .loggedInOptionsContainer {
+    align-items: center;
+  }
+  .simpleText-input {
+    height: 2.3rem;
+    width: 20rem;
+    margin-top: 1rem;
+  }
+}

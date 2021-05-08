@@ -23,12 +23,18 @@ import IncDecBtn from "./Buttons/IncrementDecrementBtn";
 import RemoveBtn from "./Buttons/RemoveBtns";
 import MoveBtn from "./Buttons/MoveToCart";
 import StarRatings from "./Star Rating/StarRatings";
+import Account from "./Account/Account";
+import SignIn from "./Account/SignIn";
+import SignUp from "./Account/SignUp";
 import Error from "./404/404";
 
 export {
   Cart,
   Products,
   Favourites,
+  Account,
+  SignIn,
+  SignUp,
   Navbar,
   TopNav,
   Filters,

@@ -8,6 +8,9 @@ import {
   Navbar,
   Error,
   TopNav,
+  Account,
+  SignIn,
+  SignUp,
 } from "./Components";
 
 function App() {
@@ -23,6 +26,9 @@ function App() {
             <Route exact path="/" element={<Products />} />
             <Route exact path="/cart" element={<Cart />} />
             <Route exact path="/favourite" element={<Favourites />} />
+            <Route exact path="/account" element={<Account />} />
+            <Route exact path="/signin" element={<SignIn />} />
+            <Route exact path="/signup" element={<SignUp />} />
             <Route path="*" element={<Error />} />
           </Routes>
         </div>
