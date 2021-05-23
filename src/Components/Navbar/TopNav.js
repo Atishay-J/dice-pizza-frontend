@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { FilterRadioBtns } from "../index";
 import React, { useState } from "react";
 
@@ -12,6 +12,8 @@ import SwapVertSharpIcon from "@material-ui/icons/SwapVertSharp";
 
 export default function TopNav() {
   const [dropdownVisible, setDropdownVisible] = useState(false);
+
+  let location = useLocation();
 
   let dropDownClass = `mobileDropDownList ${
     dropdownVisible && "showDropdownList"
@@ -39,19 +41,21 @@ export default function TopNav() {
 
       {/* TOP NAV SORT FILTER */}
 
-      <div className="mobileFilterWrapper">
-        <div className="mobileDropdownContainer">
-          <button
-            className="mobileDropDownBtn"
-            onClick={() => setDropdownVisible(!dropdownVisible)}
-          >
-            <SwapVertSharpIcon /> Sort
-          </button>
-          <div className={dropDownClass}>
-            <FilterRadioBtns />
+      {location.pathname === "/" && (
+        <div className="mobileFilterWrapper">
+          <div className="mobileDropdownContainer">
+            <button
+              className="mobileDropDownBtn"
+              onClick={() => setDropdownVisible(!dropdownVisible)}
+            >
+              <SwapVertSharpIcon /> Sort
+            </button>
+            <div className={dropDownClass}>
+              <FilterRadioBtns />
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       <div className="navLinksContainer">
         <NavLink
