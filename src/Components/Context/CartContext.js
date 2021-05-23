@@ -83,7 +83,7 @@ const cartReducer = (state, action) => {
       let item = state.cart.find((pizza) => pizza.id === action.payload.id);
       let product;
 
-      if (item.qty <= 0) {
+      if (item.qty <= 1) {
         product = state.cart.filter((item) => item.id !== action.payload.id);
         return { ...state, cart: product };
       }
