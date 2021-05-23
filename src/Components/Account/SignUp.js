@@ -13,7 +13,7 @@ const SignUp = () => {
         username: userInput.username,
         password: userInput.password,
       })
-      .then((res) => console.log("Account Created", res), setDisplayMsg(true))
+      .then((res) => console.log("Account Created"), setDisplayMsg(true))
       .catch((err) => console.log("Error while creating account"));
   };
 
