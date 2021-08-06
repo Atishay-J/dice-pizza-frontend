@@ -5,17 +5,24 @@ import { Link } from "react-router-dom";
 const SignUp = () => {
   const [userInput, setUserInput] = useState({ username: "", password: "" });
 
-  const [displayMsg, setDisplayMsg] = useState(false);
+  const [displayMsg, setDisplayMsg] = useState({ status: false, msg: "" });
 
   const signUpUser = async () => {
     if (userInput.username && userInput.password) {
       await axios
-        .post("https://dicepizza.herokuapp.com/signup", {
+        // .post("https://dicepizza.herokuapp.com/signup",
+        .post("http://localhost:8000/signup", {
           username: userInput.username,
           password: userInput.password,
         })
-        .then((res) => console.log("Account Created", res), setDisplayMsg(true))
-        .catch((err) => console.log("Error while creating account"));
+        .then((res) => {
+          console.log("Account Created", res);
+          setDisplayMsg({ status: true, msg: "Account succesfully created" });
+        })
+        .catch((err) => {
+          console.log("Error while creating account", err.response.data);
+          setDisplayMsg({ status: true, msg: err.response.data });
+        });
     }
   };
 
@@ -24,17 +31,9 @@ const SignUp = () => {
       <h1 className="heading-l">Signup</h1>
 
       <div className="signupFormWrapper">
-        {displayMsg && (
+        {displayMsg.status && (
           <div className="signUpMsgContainer mt15">
-            <h3 className="signupMsg">
-              Account succesfully created,{" "}
-              <span
-                style={{ textDecoration: "underline" }}
-                className="signupMsgLink "
-              >
-                <Link to="/signin">SignIn</Link>
-              </span>
-            </h3>
+            <h3 className="signupMsg">{displayMsg.msg}</h3>
           </div>
         )}
 
