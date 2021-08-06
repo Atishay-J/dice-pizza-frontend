@@ -17,26 +17,30 @@ const SignIn = () => {
   }, [Navigate, authState]);
 
   const signInUser = async () => {
-    await axios
-      .post("https://dicepizza.herokuapp.com/login", {
-        username: userInput.username,
-        password: userInput.password,
-      })
-      .then((res) => {
-        console.log("Logged In");
-        authDispatch({ type: "LOGIN" });
-      })
-      .catch((err) => {
-        console.log("Sign Up error response", err);
-        setDisplayMsg(true);
-      });
+    if (userInput.username && userInput.password) {
+      await axios
+        .post("https://dicepizza.herokuapp.com/login", {
+          username: userInput.username,
+          password: userInput.password,
+        })
+        .then((res) => {
+          console.log("Logged In", res);
+          authDispatch({ type: "LOGIN" });
+        })
+        .catch((err) => {
+          console.error("Error while signin", err);
+          setDisplayMsg(true);
+        });
+    }
   };
 
   return (
     <div className="signupContainer container  flex-column align-center">
       <h1 className="heading-l">SignIn</h1>
 
-      {displayMsg && <h3>Wrong Username or password</h3>}
+      {displayMsg && (
+        <h3 className="signupMsg">Incorrect Username or password</h3>
+      )}
 
       <div className="signupFormWrapper">
         <form

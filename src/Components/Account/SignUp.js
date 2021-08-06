@@ -8,13 +8,15 @@ const SignUp = () => {
   const [displayMsg, setDisplayMsg] = useState(false);
 
   const signUpUser = async () => {
-    await axios
-      .post("https://dicepizza.herokuapp.com/signup", {
-        username: userInput.username,
-        password: userInput.password,
-      })
-      .then((res) => console.log("Account Created"), setDisplayMsg(true))
-      .catch((err) => console.log("Error while creating account"));
+    if (userInput.username && userInput.password) {
+      await axios
+        .post("https://dicepizza.herokuapp.com/signup", {
+          username: userInput.username,
+          password: userInput.password,
+        })
+        .then((res) => console.log("Account Created", res), setDisplayMsg(true))
+        .catch((err) => console.log("Error while creating account"));
+    }
   };
 
   return (
