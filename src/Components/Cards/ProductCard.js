@@ -3,12 +3,40 @@ import { Link } from "react-router-dom";
 import { StarRatings } from "../index";
 
 import FavoriteSharpIcon from "@material-ui/icons/FavoriteSharp";
+import axios from "axios";
 
 export default function ProductCard({ item, reducerState, dispatch }) {
   const checkIfFav = () =>
     reducerState.favourites.find((itemsInFav) => itemsInFav.id === item._id)
       ? true
       : false;
+
+  const addToCart = async () => {
+    console.log("Add to cart");
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: {
+        id: item._id,
+        img: item.image,
+        title: item.title,
+        price: item.price,
+        isVeg: item.isVeg,
+        rating: item.rating,
+      },
+    });
+    await axios
+      .post("http://localhost:8000/addproduct", {
+        userId: localStorage.getItem("userId"),
+        id: item._id,
+        img: item.image,
+        title: item.title,
+        price: item.price,
+        isVeg: item.isVeg,
+        rating: item.rating,
+      })
+      .then((res) => console.log("Updated cart", res))
+      .catch((err) => console.log("Error update", err));
+  };
 
   return (
     <div className="productCardContainer">
@@ -65,22 +93,7 @@ export default function ProductCard({ item, reducerState, dispatch }) {
               <button className="prodCardBtn">Goto cart</button>
             </Link>
           ) : (
-            <button
-              className="prodCardBtn"
-              onClick={() =>
-                dispatch({
-                  type: "ADD_TO_CART",
-                  payload: {
-                    id: item._id,
-                    img: item.image,
-                    title: item.title,
-                    price: item.price,
-                    isVeg: item.isVeg,
-                    rating: item.rating,
-                  },
-                })
-              }
-            >
+            <button className="prodCardBtn" onClick={addToCart}>
               Add to Cart
             </button>
           )}

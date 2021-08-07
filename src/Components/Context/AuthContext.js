@@ -3,17 +3,21 @@ import { createContext, useContext, useReducer } from "react";
 export const authContext = createContext();
 
 const initState = {
-  isUserLoggedIn: localStorage.getItem("isUserLoggedIn") ? true : false,
+  isUserLoggedIn: localStorage.getItem("userId") ? true : false,
+  userData: "",
 };
 
 const authReducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
-      localStorage.setItem("isUserLoggedIn", "true");
-      return { ...state, isUserLoggedIn: true };
+      let userId = action.payload._id;
+
+      console.log("things", action.payload);
+      localStorage.setItem("userId", userId);
+      return { userData: action.payload, isUserLoggedIn: true };
 
     case "LOGOUT":
-      localStorage.removeItem("isUserLoggedIn");
+      localStorage.removeItem("userId");
       return { ...state, isUserLoggedIn: false };
 
     default:

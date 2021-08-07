@@ -1,4 +1,5 @@
 import "./App.css";
+import axios from "axios";
 
 import { Routes, Route } from "react-router-dom";
 import {
@@ -11,9 +12,29 @@ import {
   Account,
   SignIn,
   SignUp,
+  useCart,
 } from "./Components";
+import { useEffect } from "react";
+import { useAuth } from "./Components/Context/AuthContext";
 
 function App() {
+  const { authState } = useAuth();
+  const { dispatch } = useCart();
+  useEffect(() => {
+    if (authState.isUserLoggedIn) {
+      let userId = localStorage.getItem("userId");
+      axios
+        // .post("https://dicepizza.herokuapp.com/login",
+        .get(`http://localhost:8000/user/${userId}`)
+        .then((res) => {
+          dispatch({ type: "UPDATE_USER_CART", payload: res.data.cart });
+        })
+        .catch((err) => {
+          console.error("Error while updating", err);
+        });
+    }
+  }, [authState.isUserLoggedIn]);
+
   return (
     <>
       <div className="App">

@@ -2,12 +2,17 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
+import { useCart } from "../Context/CartContext";
 
 const SignIn = () => {
-  const [userInput, setUserInput] = useState({ username: "", password: "" });
+  const [userInput, setUserInput] = useState({
+    username: "guest",
+    password: "guest",
+  });
   const [displayMsg, setDisplayMsg] = useState(false);
 
   const { authState, authDispatch } = useAuth();
+  const { dispatch } = useCart();
 
   let Navigate = useNavigate();
 
@@ -26,7 +31,8 @@ const SignIn = () => {
         })
         .then((res) => {
           console.log("Logged In", res);
-          authDispatch({ type: "LOGIN" });
+          dispatch({ type: "UPDATE_USER_CART", payload: res.data.cart });
+          authDispatch({ type: "LOGIN", payload: res.data });
         })
         .catch((err) => {
           console.error("Error while signin", err);

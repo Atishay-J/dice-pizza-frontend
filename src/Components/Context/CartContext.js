@@ -36,6 +36,14 @@ const cartReducer = (state, action) => {
         ],
       };
 
+    case "UPDATE_USER_CART":
+      console.log("actionsfaf", action.payload);
+      return {
+        ...state,
+        isItemInCart: true,
+        cart: [...action.payload],
+      };
+
     case "TOGGLE_FAVOURITES":
       if (state.favourites.find((item) => item.id === action.payload.id)) {
         return {
@@ -82,12 +90,10 @@ const cartReducer = (state, action) => {
     case "DECREMENT_QTY": {
       let item = state.cart.find((pizza) => pizza.id === action.payload.id);
       let product;
-
       if (item.qty <= 1) {
         product = state.cart.filter((item) => item.id !== action.payload.id);
         return { ...state, cart: product };
       }
-
       if (item) {
         product = state.cart.map((pizza) =>
           pizza.id === action.payload.id
@@ -98,6 +104,7 @@ const cartReducer = (state, action) => {
             : pizza
         );
       }
+
       return { ...state, cart: product };
     }
 

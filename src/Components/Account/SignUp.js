@@ -3,24 +3,26 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
-  const [userInput, setUserInput] = useState({ username: "", password: "" });
+  const [{ username, password }, setUserInput] = useState({
+    username: "",
+    password: "",
+  });
 
   const [displayMsg, setDisplayMsg] = useState({ status: false, msg: "" });
 
   const signUpUser = async () => {
-    if (userInput.username && userInput.password) {
+    if (username && password) {
       await axios
         // .post("https://dicepizza.herokuapp.com/signup",
         .post("http://localhost:8000/signup", {
-          username: userInput.username,
-          password: userInput.password,
+          username,
+          password,
         })
         .then((res) => {
-          console.log("Account Created", res);
           setDisplayMsg({ status: true, msg: "Account succesfully created" });
         })
         .catch((err) => {
-          console.log("Error while creating account", err.response.data);
+          console.log("Error while creating account", err);
           setDisplayMsg({ status: true, msg: err.response.data });
         });
     }
@@ -47,18 +49,18 @@ const SignUp = () => {
               className="simpleText-input"
               type="text"
               placeholder="username"
-              value={userInput.username}
+              value={username}
               onChange={(e) =>
-                setUserInput({ ...userInput, username: e.target.value })
+                setUserInput({ password, username: e.target.value })
               }
             />
             <input
               className="simpleText-input"
               type="password"
               placeholder="password"
-              value={userInput.password}
+              value={password}
               onChange={(e) =>
-                setUserInput({ ...userInput, password: e.target.value })
+                setUserInput({ username, password: e.target.value })
               }
             />
           </div>
