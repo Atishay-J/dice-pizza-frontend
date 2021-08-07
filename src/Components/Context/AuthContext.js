@@ -12,7 +12,6 @@ const authReducer = (state, action) => {
     case "LOGIN":
       let userId = action.payload._id;
 
-      console.log("things", action.payload);
       localStorage.setItem("userId", userId);
       return { userData: action.payload, isUserLoggedIn: true };
 

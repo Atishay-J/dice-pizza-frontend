@@ -13,8 +13,7 @@ const SignUp = () => {
   const signUpUser = async () => {
     if (username && password) {
       await axios
-        // .post("https://dicepizza.herokuapp.com/signup",
-        .post("http://localhost:8000/signup", {
+        .post("https://dicepizza.herokuapp.com/signup", {
           username,
           password,
         })

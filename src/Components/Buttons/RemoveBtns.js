@@ -6,7 +6,7 @@ export default function RemoveBtn({ removeFrom, item }) {
 
   const toggleFavourites = () => {
     dispatch({ type: "TOGGLE_FAVOURITES", payload: { id: item.id } });
-    axios.post("http://localhost:8000/updatefavourites", {
+    axios.post("https://dicepizza.herokuapp.com/updatefavourites", {
       userId: localStorage.getItem("userId"),
       id: item.id,
     });

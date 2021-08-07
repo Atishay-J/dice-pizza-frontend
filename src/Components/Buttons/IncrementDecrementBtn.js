@@ -13,7 +13,7 @@ export default function IncDecBtn({ item }) {
 
     debounced.current = setTimeout(() => {
       axios
-        .post("http://localhost:8000/updateqty", {
+        .post("https://dicepizza.herokuapp.com/updateqty", {
           userId,
           productId,
           type,

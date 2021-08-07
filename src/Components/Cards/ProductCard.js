@@ -12,7 +12,6 @@ export default function ProductCard({ item, reducerState, dispatch }) {
       : false;
 
   const addToCart = async () => {
-    console.log("Add to cart");
     dispatch({
       type: "ADD_TO_CART",
       payload: {
@@ -25,7 +24,7 @@ export default function ProductCard({ item, reducerState, dispatch }) {
       },
     });
     await axios
-      .post("http://localhost:8000/addproduct", {
+      .post("https://dicepizza.herokuapp.com/addproduct", {
         userId: localStorage.getItem("userId"),
         id: item._id,
         img: item.image,
@@ -52,7 +51,7 @@ export default function ProductCard({ item, reducerState, dispatch }) {
     });
 
     axios
-      .post("http://localhost:8000/updatefavourites", {
+      .post("https://dicepizza.herokuapp.com/updatefavourites", {
         userId: localStorage.getItem("userId"),
         id: item._id,
         img: item.image,

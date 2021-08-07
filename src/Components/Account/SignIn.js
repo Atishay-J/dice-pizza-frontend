@@ -17,20 +17,17 @@ const SignIn = () => {
   let Navigate = useNavigate();
 
   useEffect(() => {
-    console.log("Usee effect called", authState.isUserLoggedIn);
     authState.isUserLoggedIn && Navigate("/");
   }, [Navigate, authState]);
 
   const signInUser = async () => {
     if (userInput.username && userInput.password) {
       await axios
-        // .post("https://dicepizza.herokuapp.com/login",
-        .post("http://localhost:8000/login", {
+        .post("https://dicepizza.herokuapp.com/login", {
           username: userInput.username,
           password: userInput.password,
         })
         .then((res) => {
-          console.log("Logged In", res);
           dispatch({ type: "UPDATE_USER_CART", payload: res.data.cart });
           dispatch({ type: "UPDATE_FAVOURITES", payload: res.data.favourites });
           authDispatch({ type: "LOGIN", payload: res.data });

@@ -25,7 +25,7 @@ function App() {
       let userId = localStorage.getItem("userId");
       axios
         // .post("https://dicepizza.herokuapp.com/login",
-        .get(`http://localhost:8000/user/${userId}`)
+        .get(`https://dicepizza.herokuapp.com/user/${userId}`)
         .then((res) => {
           dispatch({ type: "UPDATE_USER_CART", payload: res.data.cart });
           dispatch({ type: "UPDATE_FAVOURITES", payload: res.data.favourites });

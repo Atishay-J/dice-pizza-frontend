@@ -37,7 +37,6 @@ const cartReducer = (state, action) => {
       };
 
     case "UPDATE_USER_CART":
-      console.log("actionsfaf", action.payload);
       return {
         ...state,
         isItemInCart: true,
