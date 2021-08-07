@@ -32,6 +32,7 @@ const SignIn = () => {
         .then((res) => {
           console.log("Logged In", res);
           dispatch({ type: "UPDATE_USER_CART", payload: res.data.cart });
+          dispatch({ type: "UPDATE_FAVOURITES", payload: res.data.favourites });
           authDispatch({ type: "LOGIN", payload: res.data });
         })
         .catch((err) => {

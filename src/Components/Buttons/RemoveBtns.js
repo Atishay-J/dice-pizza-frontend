@@ -1,18 +1,20 @@
 import { useCart } from "../Context/CartContext";
+import axios from "axios";
 
 export default function RemoveBtn({ removeFrom, item }) {
   const { dispatch } = useCart();
 
-  console.log("Item from favroutites", item);
+  const toggleFavourites = () => {
+    dispatch({ type: "TOGGLE_FAVOURITES", payload: { id: item.id } });
+    axios.post("http://localhost:8000/updatefavourites", {
+      userId: localStorage.getItem("userId"),
+      id: item.id,
+    });
+  };
 
   return (
     <div className="removeBtnContainer">
-      <button
-        className="removeFromBtn"
-        onClick={() =>
-          dispatch({ type: "TOGGLE_FAVOURITES", payload: { id: item.id } })
-        }
-      >
+      <button className="removeFromBtn" onClick={toggleFavourites}>
         Remove from {removeFrom}
       </button>
     </div>

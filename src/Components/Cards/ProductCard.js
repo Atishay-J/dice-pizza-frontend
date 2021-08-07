@@ -38,6 +38,32 @@ export default function ProductCard({ item, reducerState, dispatch }) {
       .catch((err) => console.log("Error update", err));
   };
 
+  const toggleFavourites = () => {
+    dispatch({
+      type: "TOGGLE_FAVOURITES",
+      payload: {
+        id: item._id,
+        img: item.image,
+        title: item.title,
+        price: item.price,
+        isVeg: item.isVeg,
+        rating: item.rating,
+      },
+    });
+
+    axios
+      .post("http://localhost:8000/updatefavourites", {
+        userId: localStorage.getItem("userId"),
+        id: item._id,
+        img: item.image,
+        title: item.title,
+        price: item.price,
+        isVeg: item.isVeg,
+        rating: item.rating,
+      })
+      .catch((err) => console.log("some error occured", err));
+  };
+
   return (
     <div className="productCardContainer">
       <div className="prodImageWrapper">
@@ -48,19 +74,7 @@ export default function ProductCard({ item, reducerState, dispatch }) {
               className="heartBtn"
               type="checkbox"
               checked={checkIfFav()}
-              onChange={() =>
-                dispatch({
-                  type: "TOGGLE_FAVOURITES",
-                  payload: {
-                    id: item._id,
-                    img: item.image,
-                    title: item.title,
-                    price: item.price,
-                    isVeg: item.isVeg,
-                    rating: item.rating,
-                  },
-                })
-              }
+              onChange={toggleFavourites}
             />
             <FavoriteSharpIcon
               style={{ fontSize: "2.2rem" }}

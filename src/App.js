@@ -28,6 +28,7 @@ function App() {
         .get(`http://localhost:8000/user/${userId}`)
         .then((res) => {
           dispatch({ type: "UPDATE_USER_CART", payload: res.data.cart });
+          dispatch({ type: "UPDATE_FAVOURITES", payload: res.data.favourites });
         })
         .catch((err) => {
           console.error("Error while updating", err);

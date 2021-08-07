@@ -70,6 +70,9 @@ const cartReducer = (state, action) => {
         ],
       };
 
+    case "UPDATE_FAVOURITES":
+      return { ...state, favourites: [...action.payload] };
+
     case "INCREMENT_QTY": {
       let item = state.cart.find((pizza) => pizza.id === action.payload.id);
       let product;
