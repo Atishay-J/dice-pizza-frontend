@@ -1,15 +1,14 @@
 import { useAuth } from "../Context/AuthContext";
 import "./account.css";
 import LoggedInOptions from "./LoggedInUserOptions";
-
-import SignUp from "./SignUp";
+import SignIn from "./SignIn";
 
 const Account = () => {
   const { authState } = useAuth();
 
   return (
     <div className="accountContainer container">
-      {authState.isUserLoggedIn ? <LoggedInOptions /> : <SignUp />}
+      {authState.isUserLoggedIn ? <LoggedInOptions /> : <SignIn />}
     </div>
   );
 };
