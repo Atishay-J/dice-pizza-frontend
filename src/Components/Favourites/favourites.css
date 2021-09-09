@@ -1,0 +1,22 @@
+.favouritesContainer {
+  margin-top: 5rem;
+  padding-bottom: 8rem;
+}
+.favouritesCardWrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.favouritesList {
+  margin-top: 1.5rem;
+  margin-left: 1rem;
+}
+
+@media only screen and (min-width: 680px) {
+  .favouritesCardWrapper {
+    justify-content: flex-start;
+  }
+  .favouritesList {
+    margin-left: 1.8rem;
+  }
+}
