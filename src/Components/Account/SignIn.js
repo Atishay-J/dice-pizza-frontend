@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../Context/AuthContext";
-import { useCart } from "../Context/CartContext";
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../Context/AuthContext';
+import { useCart } from '../Context/CartContext';
+import axiosInstance from '../utils';
 
 const SignIn = () => {
   const [userInput, setUserInput] = useState({
-    username: "guest",
-    password: "guest",
+    username: 'guest',
+    password: 'guest'
   });
   const [displayMsg, setDisplayMsg] = useState(false);
 
@@ -17,23 +17,23 @@ const SignIn = () => {
   let Navigate = useNavigate();
 
   useEffect(() => {
-    authState.isUserLoggedIn && Navigate("/");
+    authState.isUserLoggedIn && Navigate('/');
   }, [Navigate, authState]);
 
   const signInUser = async () => {
     if (userInput.username && userInput.password) {
-      await axios
-        .post("https://dicepizza.herokuapp.com/login", {
+      await axiosInstance
+        .post('/login', {
           username: userInput.username,
-          password: userInput.password,
+          password: userInput.password
         })
         .then((res) => {
-          dispatch({ type: "UPDATE_USER_CART", payload: res.data.cart });
-          dispatch({ type: "UPDATE_FAVOURITES", payload: res.data.favourites });
-          authDispatch({ type: "LOGIN", payload: res.data });
+          dispatch({ type: 'UPDATE_USER_CART', payload: res.data.cart });
+          dispatch({ type: 'UPDATE_FAVOURITES', payload: res.data.favourites });
+          authDispatch({ type: 'LOGIN', payload: res.data });
         })
         .catch((err) => {
-          console.error("Error while signin", err);
+          console.error('Error while signin', err);
           setDisplayMsg(true);
         });
     }
@@ -82,7 +82,7 @@ const SignIn = () => {
         </form>
 
         <p className="signInPara mt10">
-          Don't have an accout?{" "}
+          Don't have an accout?{' '}
           <Link to="/signup">
             <span className="formLink"> SignUp</span>
           </Link>

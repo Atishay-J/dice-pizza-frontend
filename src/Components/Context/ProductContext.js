@@ -1,5 +1,5 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import axios from "axios";
+import { createContext, useContext, useEffect, useState } from 'react';
+import axiosInstance from '../utils';
 
 export const ProductContext = createContext();
 
@@ -7,7 +7,7 @@ export const ProductProvider = ({ children }) => {
   const [apiProductData, setApiProductData] = useState([]);
 
   useEffect(() => {
-    axios.get("https://dicepizza.herokuapp.com/api/products").then((res) => {
+    axiosInstance.get('/api/products').then((res) => {
       setApiProductData(res.data);
     });
   }, []);

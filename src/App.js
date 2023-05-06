@@ -1,7 +1,6 @@
-import "./App.css";
-import axios from "axios";
+import './App.css';
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from 'react-router-dom';
 import {
   Products,
   Cart,
@@ -12,26 +11,26 @@ import {
   Account,
   SignIn,
   SignUp,
-  useCart,
-} from "./Components";
-import { useEffect } from "react";
-import { useAuth } from "./Components/Context/AuthContext";
+  useCart
+} from './Components';
+import { useEffect } from 'react';
+import { useAuth } from './Components/Context/AuthContext';
+import axiosInstance from './Components/utils';
 
 function App() {
   const { authState } = useAuth();
   const { dispatch } = useCart();
   useEffect(() => {
     if (authState.isUserLoggedIn) {
-      let userId = localStorage.getItem("userId");
-      axios
-        // .post("https://dicepizza.herokuapp.com/login",
-        .get(`https://dicepizza.herokuapp.com/user/${userId}`)
+      let userId = localStorage.getItem('userId');
+      axiosInstance
+        .get(`/user/${userId}`)
         .then((res) => {
-          dispatch({ type: "UPDATE_USER_CART", payload: res.data.cart });
-          dispatch({ type: "UPDATE_FAVOURITES", payload: res.data.favourites });
+          dispatch({ type: 'UPDATE_USER_CART', payload: res.data.cart });
+          dispatch({ type: 'UPDATE_FAVOURITES', payload: res.data.favourites });
         })
         .catch((err) => {
-          console.error("Error while updating", err);
+          console.error('Error while updating', err);
         });
     }
   }, [authState.isUserLoggedIn]);
