@@ -1,14 +1,14 @@
-import { useCart } from "../Context/CartContext";
-import axios from "axios";
+import { useCart } from '../Context/CartContext';
+import axiosInstance from '../utils';
 
 export default function RemoveBtn({ removeFrom, item }) {
   const { dispatch } = useCart();
 
   const toggleFavourites = () => {
-    dispatch({ type: "TOGGLE_FAVOURITES", payload: { id: item.id } });
-    axios.post("https://dicepizza.herokuapp.com/updatefavourites", {
-      userId: localStorage.getItem("userId"),
-      id: item.id,
+    dispatch({ type: 'TOGGLE_FAVOURITES', payload: { id: item.id } });
+    axiosInstance.post('/updatefavourites', {
+      userId: localStorage.getItem('userId'),
+      id: item.id
     });
   };
 

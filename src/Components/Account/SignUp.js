@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import axiosInstance from '../utils';
 
 const SignUp = () => {
   const [{ username, password }, setUserInput] = useState({
-    username: "",
-    password: "",
+    username: '',
+    password: ''
   });
 
-  const [displayMsg, setDisplayMsg] = useState({ status: false, msg: "" });
+  const [displayMsg, setDisplayMsg] = useState({ status: false, msg: '' });
 
   const signUpUser = async () => {
     if (username && password) {
-      await axios
-        .post("https://dicepizza.herokuapp.com/signup", {
+      await axiosInstance
+        .post('/signup', {
           username,
-          password,
+          password
         })
         .then((res) => {
-          setDisplayMsg({ status: true, msg: "Account succesfully created" });
+          setDisplayMsg({ status: true, msg: 'Account succesfully created' });
         })
         .catch((err) => {
-          console.log("Error while creating account", err);
+          console.log('Error while creating account', err);
           setDisplayMsg({ status: true, msg: err.response.data });
         });
     }
@@ -71,9 +71,9 @@ const SignUp = () => {
           />
         </form>
         <h3 className="signupMsg">
-          Already have an account,{" "}
+          Already have an account,{' '}
           <span
-            style={{ textDecoration: "underline" }}
+            style={{ textDecoration: 'underline' }}
             className="signupMsgLink "
           >
             <Link to="/signin">SignIn</Link>

@@ -1,40 +1,40 @@
-import axios from "axios";
-import { useEffect, useRef } from "react";
-import { useCart } from "../Context/CartContext";
+import { useEffect, useRef } from 'react';
+import { useCart } from '../Context/CartContext';
+import axiosInstance from '../utils';
 
 export default function IncDecBtn({ item }) {
   const { dispatch } = useCart();
   const debounced = useRef();
 
   const updateOnServer = (productId, type) => {
-    let userId = localStorage.getItem("userId");
+    let userId = localStorage.getItem('userId');
 
     clearTimeout(debounced.current);
 
     debounced.current = setTimeout(() => {
-      axios
-        .post("https://dicepizza.herokuapp.com/updateqty", {
+      axiosInstance
+        .post('/updateqty', {
           userId,
           productId,
           type,
-          qty: item.qty,
+          qty: item.qty
         })
-        .then((res) => console.log("Product updated", res))
-        .catch((err) => console.log("error while updating product", err));
+        .then((res) => console.log('Product updated', res))
+        .catch((err) => console.log('error while updating product', err));
     }, 400);
   };
 
   const incrementQty = () => {
     dispatch({
-      type: "INCREMENT_QTY",
-      payload: { id: item.id },
+      type: 'INCREMENT_QTY',
+      payload: { id: item.id }
     });
-    updateOnServer(item.id, "INCREMENT");
+    updateOnServer(item.id, 'INCREMENT');
   };
 
   const decrementQty = () => {
-    dispatch({ type: "DECREMENT_QTY", payload: { id: item.id } });
-    updateOnServer(item.id, "DECREMENT");
+    dispatch({ type: 'DECREMENT_QTY', payload: { id: item.id } });
+    updateOnServer(item.id, 'DECREMENT');
   };
 
   useEffect(() => {
